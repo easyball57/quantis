@@ -15,9 +15,13 @@ app.config.update(dict(
     WTF_CSRF_SECRET_KEY="a csrf secret key"
 ))
 
-@app.route("/rand/<int:n>")
-def rand(n):
+@app.route("/randstr/<int:n>")
+def randstr(n):
     return jsonify(randomstr.get_alphabet(n))
+
+@app.route("/randfloat/<int:n>")
+def randfloat(n):
+    return randomstr.get_float(n)
 
 
 class MainForm(FlaskForm):
